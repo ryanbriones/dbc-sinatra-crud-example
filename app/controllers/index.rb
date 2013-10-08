@@ -1,8 +1,17 @@
-require "ostruct"
-
 get '/' do
-  @contacts = [
-    OpenStruct.new(:id => 1, :first_name => "Ryan", :last_name => "Briones", :phone => "55555551212", :email => "ryan@devbootcamp.com")
-  ]
+  @contacts = Contact.all
   erb :index
+end
+
+get '/contacts/new' do
+  erb :new
+end
+
+post '/contacts' do
+  @contact = Contact.create(params[:contact])
+  if @contact.valid?
+    redirect to("/")
+  else
+    erb :new
+  end
 end

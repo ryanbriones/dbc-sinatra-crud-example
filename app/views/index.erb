@@ -1,26 +1,24 @@
-<div class="container">
-  <h1>Contacts!</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-      </tr>
-    </thead>
+<a href="/contacts/new">Create a new Contact</a>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
 
-    <tbody>
-      <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.id %></td>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
-        <td><%= contact.phone %></td>
-        <td><%= contact.email %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+  <tbody>
+    <% @contacts.each do |contact| %>
+    <tr>
+      <td><%= contact.id %></td>
+      <td><%= contact.first_name %></td>
+      <td><%= contact.last_name %></td>
+      <td><%= contact.phone %></td>
+      <td><%= contact.email %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
