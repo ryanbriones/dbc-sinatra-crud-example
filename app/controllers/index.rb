@@ -18,3 +18,9 @@ post '/contacts' do
     erb :new
   end
 end
+
+# "SHOW", part of the R in CRUD
+get "/contacts/:id" do
+  @contact = Contact.find(params[:id])
+  erb :show_contact
+end
