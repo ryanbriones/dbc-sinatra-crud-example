@@ -7,6 +7,7 @@
       <th>Last Name</th>
       <th>Phone</th>
       <th>Email</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -18,6 +19,9 @@
       <td><%= contact.last_name %></td>
       <td><%= contact.phone %></td>
       <td><%= contact.email %></td>
+      <td>
+        <a href="/contacts/<%= contact.id %>/edit">Edit</a>
+      </td>
     </tr>
     <% end %>
   </tbody>

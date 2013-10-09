@@ -24,3 +24,19 @@ get "/contacts/:id" do
   @contact = Contact.find(params[:id])
   erb :show_contact
 end
+
+# "EDIT", part of the U in CRUD
+get "/contacts/:id/edit" do
+  @contact = Contact.find(params[:id])
+  erb :edit_contact_form
+end
+
+# "UPDATE", part of the U in CRUD
+post "/contacts/:id" do
+  @contact = Contact.find(params[:id])
+  if @contact.update_attributes(params[:contact])
+    redirect to("/")
+  else
+    erb :edit_contact_form
+  end
+end
