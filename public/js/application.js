@@ -8,5 +8,23 @@ $(document).ready(function() {
     $.get($newContactLink.attr("href"), function(response) {
       $(".container").append(response);
     })
+
+    $newContactLink.hide();
   })
+
+  $(document).on("submit", "#new-contact-form", function(event) {
+    event.preventDefault();
+
+    var $newContactForm = $(this);
+
+    var url = $newContactForm.attr("action");
+    var data = $newContactForm.serialize();
+
+    $.post(url, data, function(response) {
+      $("table tbody").append(response);
+    });
+
+    $newContactForm.remove();
+    $("#new-contact-link").show();
+  });
 });

@@ -13,7 +13,11 @@ end
 post '/contacts' do
   @contact = Contact.create(params[:contact])
   if @contact.valid?
-    redirect to("/")
+    if request.xhr?
+      erb :_contact_table_row, :layout => false, :locals => {:contact => @contact}
+    else
+      redirect to("/")
+    end
   else
     erb :new
   end

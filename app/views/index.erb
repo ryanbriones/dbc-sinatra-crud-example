@@ -13,19 +13,7 @@
 
   <tbody>
     <% @contacts.each do |contact| %>
-    <tr>
-      <td><a href="/contacts/<%= contact.id %>"><%= contact.id %></a></td>
-      <td><%= contact.first_name %></td>
-      <td><%= contact.last_name %></td>
-      <td><%= contact.phone %></td>
-      <td><%= contact.email %></td>
-      <td>
-        <a href="/contacts/<%= contact.id %>/edit">Edit</a>
-        <form action="/contacts/<%= contact.id %>/destroy" method="POST">
-          <input type="submit" name="commit" value="Delete">
-        </form>
-      </td>
-    </tr>
+    <%= erb :_contact_table_row, :layout => false, :locals => {:contact => contact} %>
     <% end %>
   </tbody>
 </table>
