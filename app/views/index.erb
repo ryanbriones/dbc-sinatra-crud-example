@@ -21,6 +21,9 @@
       <td><%= contact.email %></td>
       <td>
         <a href="/contacts/<%= contact.id %>/edit">Edit</a>
+        <form action="/contacts/<%= contact.id %>/destroy" method="POST">
+          <input type="submit" name="commit" value="Delete">
+        </form>
       </td>
     </tr>
     <% end %>

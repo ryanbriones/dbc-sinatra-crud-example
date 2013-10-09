@@ -40,3 +40,10 @@ post "/contacts/:id" do
     erb :edit_contact_form
   end
 end
+
+# "DESTROY", the D in CRUD
+post "/contacts/:id/destroy" do
+  @contact = Contact.find(params[:id])
+  @contact.destroy
+  redirect to("/")
+end
