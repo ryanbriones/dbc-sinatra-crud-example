@@ -1,20 +1,5 @@
 <form action="/contacts" method="post">
-  <div>
-    <label for="contact_first_name">First Name</label>
-    <input type="text" id="contact_first_name" name="contact[first_name]" value="<%= @contact.try(:first_name) %>">
-  </div>
-  <div>
-    <label for="contact_last_name">Last Name</label>
-    <input type="text" id="contact_last_name" name="contact[last_name]" value="<%= @contact.try(:last_name) %>">
-  </div>
-  <div>
-    <label for="contact_phone">Phone</label>
-    <input type="text" id="contact_phone" name="contact[phone]" value="<%= @contact.try(:phone) %>">
-  </div>
-  <div>
-    <label for="contact_email">Email</label>
-    <input type="text" id="contact_email" name="contact[email]" value="<%= @contact.try(:email) %>">
-  </div>
+  <%= erb :_contact_form_fields, :layout => false %>
   
   <div>
     <input type="submit" value="Save" name="commit">
