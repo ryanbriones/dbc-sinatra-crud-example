@@ -6,7 +6,7 @@ end
 
 # "NEW", part of the C in CRUD
 get '/contacts/new' do
-  erb :new
+  erb :new, :layout => !request.xhr?
 end
 
 # "CREATE", part of the C in CRUD
