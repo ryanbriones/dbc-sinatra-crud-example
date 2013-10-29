@@ -11,8 +11,8 @@ end
 
 # "CREATE", part of the C in CRUD
 post '/contacts' do
-  @contact = Contact.create(params[:contact])
-  if @contact.valid?
+  @contact = Contact.new(params[:contact])
+  if @contact.save
     redirect to("/")
   else
     erb :new
