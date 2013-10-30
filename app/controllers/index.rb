@@ -45,5 +45,9 @@ end
 post "/contacts/:id/destroy" do
   @contact = Contact.find(params[:id])
   @contact.destroy
-  redirect to("/")
+  if request.xhr?
+    "ok"
+  else
+    redirect to("/")
+  end
 end

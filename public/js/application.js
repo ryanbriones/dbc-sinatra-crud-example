@@ -1,7 +1,18 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $(".delete-form").on("submit", function(event) {
+    // yo browser, i got this.
+    event.preventDefault();
+
+    // make the delete request with AJAX
+    var form = $(this);
+    var action = form.attr("action");
+
+    $.post(action, function(response) {
+      // when it responds, remove the line from the table
+      form.closest("tr").remove();
+      debugger;
+    });
+  });
+
 });
